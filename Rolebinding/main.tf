@@ -1,4 +1,4 @@
-resource "kubernetes_manifest" "clusterrolebinding_superadmin" {
+resource "kubernetes_manifest" "namespace_rolebinding" {
   provider = kubernetes-alpha
   manifest = {
     "apiVersion" = "rbac.authorization.k8s.io/v1"
@@ -14,13 +14,13 @@ resource "kubernetes_manifest" "clusterrolebinding_superadmin" {
     "roleRef" = {
       "apiGroup" = "rbac.authorization.k8s.io"
       "kind"     = "ClusterRole"
-      "name"     = var.Clusterrole //"ex:superadmin"
+      "name"     = var.Clusterrole //clusterroleName to be used
     }
     "subjects" = [
       {
         "apiGroup" = "rbac.authorization.k8s.io"
         "kind"     = "User"
-        "name"     = var.Username //"wcp:10.118.131.192:administrator@vsphere.local"
+        "name"     = var.Username //user to bind this role to
       },
     ]
   }
