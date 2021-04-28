@@ -6,7 +6,7 @@
 module "NS" {
   source = "git::https://github.com/skarothi-deloitte/Kubernetes-Namespaces.git//Namespace"
 
-Namespace =  "namespace2021"
+Namespace =  "example value:namespace2021"
 
 }
 
